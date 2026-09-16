@@ -89,16 +89,24 @@ export const SKILLS_LIST: Skill[] = [
 
 export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
   {
-    id: 'project-slot-1',
-    title: 'Project will be added',
-    category: 'React.js',
-    statusLabel: 'Projects Coming Soon',
-    note: 'This card is ready to showcase a live frontend project with React.js components, state management, and responsive styling.',
+    id: 'project-mamacita-studio',
+    title: 'MamaCita Studio',
+    category: 'Dance & Fitness Studio Website',
+    statusLabel: 'Completed',
+    isRealProject: true,
+    note: 'A modern responsive website developed for MamaCita Studio, a women’s dance and fitness studio. The website presents the studio’s classes, schedule, services, and contact information through a clean and engaging user interface designed for an easy browsing experience.',
     imagePlaceholder: {
-      title: 'React.js Project Slot',
-      gradient: 'from-violet-950/70 via-slate-900/80 to-purple-950/50',
+      title: 'MamaCita Studio • Dance & Fitness',
+      gradient: 'from-fuchsia-950/70 via-purple-950/80 to-slate-900/90',
     },
-    technologies: ['React.js', 'JavaScript ES6+', 'CSS3', 'Reusable Components'],
+    technologies: [
+      'React.js',
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'Responsive Web Design',
+    ],
+    liveDemoUrl: 'https://mama-cita-seven.vercel.app/',
     githubUrl: 'https://github.com/bassant198',
   },
   {
@@ -106,6 +114,7 @@ export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
     title: 'Project will be added',
     category: 'JavaScript',
     statusLabel: 'Projects Coming Soon',
+    isRealProject: false,
     note: 'This card is ready to showcase an interactive web application built with vanilla JavaScript, DOM events, and modern CSS.',
     imagePlaceholder: {
       title: 'JavaScript Application Slot',
@@ -119,6 +128,7 @@ export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
     title: 'Project will be added',
     category: 'Responsive UI',
     statusLabel: 'Projects Coming Soon',
+    isRealProject: false,
     note: 'This card is ready to showcase a mobile-first responsive landing experience with CSS Grid, Flexbox, and semantic HTML5.',
     imagePlaceholder: {
       title: 'Responsive UI Slot',
@@ -132,6 +142,7 @@ export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
     title: 'Project will be added',
     category: 'React.js',
     statusLabel: 'Projects Coming Soon',
+    isRealProject: false,
     note: 'This card is ready to showcase a component-based frontend interface with modular CSS and accessible controls.',
     imagePlaceholder: {
       title: 'Frontend Interface Slot',

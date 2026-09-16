@@ -7,19 +7,23 @@ export interface Skill {
   items: string[];
 }
 
-export interface ProjectPlaceholder {
+export interface ProjectItem {
   id: string;
   title: string;
   category: string;
   statusLabel: string;
+  isRealProject?: boolean;
   note: string;
   imagePlaceholder: {
     title: string;
     gradient: string;
   };
   technologies: string[];
-  githubUrl: string;
+  liveDemoUrl?: string;
+  githubUrl?: string;
 }
+
+export type ProjectPlaceholder = ProjectItem;
 
 export interface WhyWorkItem {
   id: string;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { X, Github, Layers, Sparkles, Clock, ArrowUpRight } from 'lucide-react';
-import { ProjectPlaceholder } from '../types';
+import { X, Github, Layers, Sparkles, Clock, CheckCircle2, ArrowUpRight, ExternalLink } from 'lucide-react';
+import { ProjectItem } from '../types';
 
 interface ProjectModalProps {
-  project: ProjectPlaceholder | null;
+  project: ProjectItem | null;
   onClose: () => void;
 }
 
@@ -26,7 +26,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           id="project-modal-close-button"
           type="button"
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-violet-400"
+          className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-violet-400 cursor-pointer"
           aria-label="Close project modal"
         >
           <X className="w-5 h-5" />
@@ -35,7 +35,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Header */}
         <div className="flex items-center gap-2 text-xs font-mono text-violet-400 mb-2">
           <Layers className="w-4 h-4" />
-          <span>{project.category} Showcase Slot</span>
+          <span>{project.category}</span>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">
           {project.title}
@@ -51,19 +51,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <span className="text-sm font-semibold text-white tracking-wide">
             {project.imagePlaceholder.title}
           </span>
-          <span className="text-xs text-violet-300/80 mt-1 flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5" />
+          <span
+            className={`text-xs mt-1.5 flex items-center gap-1 px-2.5 py-0.5 rounded-full border ${
+              project.isRealProject
+                ? 'bg-emerald-950/70 border-emerald-500/30 text-emerald-300'
+                : 'bg-violet-950/60 border-violet-500/30 text-violet-300'
+            }`}
+          >
+            {project.isRealProject ? (
+              <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+            ) : (
+              <Clock className="w-3 h-3 text-violet-400" />
+            )}
             {project.statusLabel}
           </span>
         </div>
 
-        {/* Note */}
+        {/* Note / Description */}
         <div className="space-y-4 text-sm text-slate-300 mb-6">
           <p className="leading-relaxed text-slate-300">{project.note}</p>
 
           <div className="pt-3 border-t border-slate-800/80">
             <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2.5">
-              Associated Technologies
+              Technologies Used
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
@@ -80,22 +90,47 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Actions */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80">
-          <div className="flex items-center gap-2 text-xs text-slate-400">
-            <Clock className="w-4 h-4 text-violet-400" />
-            <span>Project slot reserved for upcoming build</span>
-          </div>
+          {project.liveDemoUrl ? (
+            <>
+              <div className="flex items-center gap-2 text-xs text-emerald-400">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Live website available</span>
+              </div>
 
-          <a
-            id="modal-github-link"
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold transition-colors shadow-md shadow-violet-950/50"
-          >
-            <Github className="w-4 h-4" />
-            <span>View GitHub Profile</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+              <div className="flex items-center gap-2">
+                <a
+                  id="modal-live-demo-link"
+                  href={project.liveDemoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold transition-colors shadow-md shadow-violet-950/50"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Open Live Demo</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center gap-2 text-xs text-slate-400">
+                <Clock className="w-4 h-4 text-violet-400" />
+                <span>Project slot reserved for upcoming build</span>
+              </div>
+
+              <a
+                id="modal-github-link"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold transition-colors shadow-md shadow-violet-950/50"
+              >
+                <Github className="w-4 h-4" />
+                <span>View GitHub Profile</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </>
+          )}
         </div>
       </div>
     </div>
