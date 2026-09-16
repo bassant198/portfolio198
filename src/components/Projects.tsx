@@ -7,8 +7,8 @@ import {
   Info,
   Code2,
   Clock,
-  CheckCircle2,
   ExternalLink,
+  ShoppingBag,
 } from 'lucide-react';
 import { PROJECTS_PLACEHOLDERS } from '../data/portfolioData';
 import { ProjectItem } from '../types';
@@ -90,7 +90,7 @@ export const Projects: React.FC = () => {
           </div>
         </div>
 
-        {/* Projects Grid with MamaCita Featured First */}
+        {/* Projects Grid */}
         <div
           id="projects-grid"
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -114,7 +114,9 @@ export const Projects: React.FC = () => {
 
                 {/* Center visual icon element */}
                 <div className="w-14 h-14 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white mb-3 shadow-xl group-hover:scale-110 transition-transform duration-300">
-                  {project.isRealProject ? (
+                  {project.id === 'project-nova-ecommerce' ? (
+                    <ShoppingBag className="w-7 h-7 text-cyan-300" />
+                  ) : project.isRealProject ? (
                     <Sparkles className="w-7 h-7 text-pink-300" />
                   ) : (
                     <Code2 className="w-7 h-7 text-violet-300" />
@@ -149,7 +151,9 @@ export const Projects: React.FC = () => {
                 <div className="absolute top-4 left-4 z-10">
                   <span
                     className={`px-2.5 py-1 rounded-md text-[11px] font-semibold backdrop-blur-md font-mono border ${
-                      project.isRealProject
+                      project.id === 'project-nova-ecommerce'
+                        ? 'bg-indigo-950/80 text-cyan-200 border-cyan-500/30'
+                        : project.isRealProject
                         ? 'bg-pink-950/80 text-pink-200 border-pink-500/30'
                         : 'bg-black/60 text-violet-300 border-violet-500/30'
                     }`}
@@ -176,9 +180,14 @@ export const Projects: React.FC = () => {
                     <h3 className="text-xl font-bold text-white group-hover:text-violet-300 transition-colors flex items-center gap-2">
                       <span>{project.title}</span>
                     </h3>
-                    {project.isRealProject && (
+                    {project.id === 'project-mamacita-studio' && (
                       <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-950 text-violet-300 border border-violet-500/30 font-mono shrink-0">
                         Featured
+                      </span>
+                    )}
+                    {project.id === 'project-nova-ecommerce' && (
+                      <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-mono shrink-0">
+                        Completed
                       </span>
                     )}
                   </div>
@@ -213,7 +222,7 @@ export const Projects: React.FC = () => {
                   {project.isRealProject && project.liveDemoUrl ? (
                     <>
                       <a
-                        id="project-livedemo-btn-mamacita"
+                        id={`project-livedemo-btn-${project.id}`}
                         href={project.liveDemoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -225,7 +234,7 @@ export const Projects: React.FC = () => {
                       </a>
 
                       <button
-                        id="project-details-btn-mamacita"
+                        id={`project-details-btn-${project.id}`}
                         type="button"
                         onClick={() => setActiveModalProject(project)}
                         className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 text-xs font-medium transition-colors cursor-pointer"

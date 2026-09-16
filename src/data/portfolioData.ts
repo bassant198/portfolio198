@@ -3,62 +3,62 @@ import { Skill, ProjectPlaceholder, WhyWorkItem } from '../types';
 export const PERSONAL_INFO = {
   name: 'Bassant Osama',
   role: 'Frontend Developer',
-  juniorRoleTitle: 'Junior Frontend Developer',
   location: 'Shebin El-Kom, Monufia, Egypt',
   phone: '01065804887',
-  formattedPhone: '+20 106 580 4887',
   phoneTel: 'tel:+201065804887',
   whatsappUrl: 'https://wa.me/201065804887',
   email: 'bassanteldofy52225@gmail.com',
   github: 'https://github.com/bassant198',
   linkedin: 'https://www.linkedin.com/in/bassant-eldofy-b2857924b/',
-  bioShort:
-    'I build modern, responsive, and user-focused web experiences with clean code and attention to detail.',
-  aboutDetailed:
-    'Hi! I’m Bassant Osama, a Frontend Developer based in Shebin El-Kom, Monufia, Egypt. I enjoy turning ideas and designs into responsive, interactive, and user-friendly websites. I work with HTML5, CSS3, JavaScript, React.js, Git, and GitHub, and I focus on writing clean, readable code while creating smooth and consistent experiences across different screen sizes. I approach every project with attention to detail, problem-solving, and a strong focus on responsive design and usability.',
-  availability: 'Available for Remote & International Roles',
-  availabilityShort: 'Available for Remote Opportunities',
+  bio: 'Junior Frontend Developer focused on building clean, responsive, and user-friendly web applications using React.js, JavaScript, HTML5, and CSS3.',
+  bioShort: 'I build modern, responsive, and user-focused web experiences with clean code and attention to detail.',
+  fullBio: `Hi! I’m Bassant Osama, a Frontend Developer based in Shebin El-Kom, Monufia, Egypt.
+
+I enjoy turning ideas and designs into responsive, interactive, and user-friendly websites. I work with HTML5, CSS3, JavaScript, React.js, Git, and GitHub, and I focus on writing clean, readable code while creating smooth and consistent experiences across different screen sizes.
+
+I approach every project with attention to detail, problem-solving, and a strong focus on responsive design and usability.`,
+  availability: 'Available for Remote Opportunities',
 };
 
-export const SKILLS_LIST: Skill[] = [
+export const SKILLS_DATA: Skill[] = [
   {
     id: 'skill-react',
     name: 'React.js',
     category: 'framework',
-    badge: 'Framework',
-    description: 'Building modular user interfaces with component-driven development and declarative state.',
+    badge: 'Component-Driven UI',
+    description: 'Developing interactive user interfaces using reusable components, state, and hooks.',
     items: ['Components', 'Props', 'State', 'Hooks', 'Reusable UI'],
   },
   {
-    id: 'skill-js',
-    name: 'JavaScript',
+    id: 'skill-javascript',
+    name: 'JavaScript (ES6+)',
     category: 'core',
-    badge: 'Core Language',
-    description: 'Writing functional logic and interactive behavior using modern ECMAScript standards.',
+    badge: 'Modern Core',
+    description: 'Writing modern JavaScript with ES6+ syntax, functions, array methods, and DOM manipulation.',
     items: ['ES6+', 'DOM Manipulation', 'Events', 'Array Methods', 'Functions', 'Objects'],
   },
   {
     id: 'skill-html5',
     name: 'HTML5',
     category: 'core',
-    badge: 'Markup',
-    description: 'Structuring clean, standards-compliant web documents with accessible tags.',
+    badge: 'Semantic Structure',
+    description: 'Structuring clean web layouts with semantic elements and accessible content hierarchy.',
     items: ['Semantic HTML', 'Forms', 'Accessible structure'],
   },
   {
     id: 'skill-css3',
-    name: 'CSS3',
+    name: 'CSS3 & Responsive Design',
     category: 'core',
-    badge: 'Styling',
-    description: 'Designing adaptive page layouts, visual styling, and smooth element transitions.',
+    badge: 'Modern Layouts',
+    description: 'Crafting fluid layouts and visual styling with modern Flexbox, CSS Grid, and media queries.',
     items: ['Flexbox', 'CSS Grid', 'Responsive Design', 'Animations', 'Transitions'],
   },
   {
     id: 'skill-clean-code',
     name: 'Clean & Reusable Code',
     category: 'practices',
-    badge: 'Architecture',
-    description: 'Organizing code into structured, maintainable modules with consistent conventions.',
+    badge: 'Code Quality',
+    description: 'Writing maintainable frontend code using reusable components and clean architecture principles.',
     items: ['Reusable Components', 'Readable Structure', 'Maintainable Code'],
   },
   {
@@ -66,15 +66,15 @@ export const SKILLS_LIST: Skill[] = [
     name: 'Git',
     category: 'workflow',
     badge: 'Version Control',
-    description: 'Tracking code history, isolating features in branches, and managing revisions.',
+    description: 'Tracking code changes, managing branches, and handling commits cleanly.',
     items: ['Version Control', 'Branching', 'Commits'],
   },
   {
     id: 'skill-github',
     name: 'GitHub',
     category: 'workflow',
-    badge: 'Workflow',
-    description: 'Managing remote repositories, organizing project files, and sharing source code.',
+    badge: 'Repository Management',
+    description: 'Hosting projects, managing remote repositories, and organizing frontend workflows.',
     items: ['Repositories', 'Project Hosting', 'Git Workflow'],
   },
   {
@@ -86,6 +86,8 @@ export const SKILLS_LIST: Skill[] = [
     items: ['Debugging', 'Responsive Testing', 'Inspecting HTML/CSS'],
   },
 ];
+
+export const SKILLS_LIST = SKILLS_DATA;
 
 export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
   {
@@ -110,45 +112,26 @@ export const PROJECTS_PLACEHOLDERS: ProjectPlaceholder[] = [
     githubUrl: 'https://github.com/bassant198',
   },
   {
-    id: 'project-slot-2',
-    title: 'Project will be added',
-    category: 'JavaScript',
-    statusLabel: 'Projects Coming Soon',
-    isRealProject: false,
-    note: 'This card is ready to showcase an interactive web application built with vanilla JavaScript, DOM events, and modern CSS.',
+    id: 'project-nova-ecommerce',
+    title: 'NOVA E-Commerce',
+    category: 'E-Commerce Frontend',
+    statusLabel: 'Completed',
+    isRealProject: true,
+    note: 'A modern responsive e-commerce frontend built with React.js, featuring product browsing, search, filtering, sorting, product details, shopping cart functionality, and a responsive checkout experience.',
     imagePlaceholder: {
-      title: 'JavaScript Application Slot',
-      gradient: 'from-cyan-950/60 via-slate-900/80 to-violet-950/50',
+      title: 'NOVA E-Commerce • Storefront UI',
+      gradient: 'from-cyan-950/70 via-indigo-950/80 to-slate-900/90',
     },
-    technologies: ['JavaScript', 'DOM Manipulation', 'HTML5', 'CSS3'],
-    githubUrl: 'https://github.com/bassant198',
-  },
-  {
-    id: 'project-slot-3',
-    title: 'Project will be added',
-    category: 'Responsive UI',
-    statusLabel: 'Projects Coming Soon',
-    isRealProject: false,
-    note: 'This card is ready to showcase a mobile-first responsive landing experience with CSS Grid, Flexbox, and semantic HTML5.',
-    imagePlaceholder: {
-      title: 'Responsive UI Slot',
-      gradient: 'from-purple-950/60 via-slate-900/80 to-cyan-950/50',
-    },
-    technologies: ['HTML5', 'CSS3', 'Flexbox / Grid', 'Responsive Design'],
-    githubUrl: 'https://github.com/bassant198',
-  },
-  {
-    id: 'project-slot-4',
-    title: 'Project will be added',
-    category: 'React.js',
-    statusLabel: 'Projects Coming Soon',
-    isRealProject: false,
-    note: 'This card is ready to showcase a component-based frontend interface with modular CSS and accessible controls.',
-    imagePlaceholder: {
-      title: 'Frontend Interface Slot',
-      gradient: 'from-violet-950/60 via-indigo-950/50 to-slate-900/80',
-    },
-    technologies: ['React.js', 'Clean Code', 'Responsive UI', 'Git/GitHub'],
+    technologies: [
+      'React.js',
+      'JavaScript ES6+',
+      'HTML5',
+      'CSS3',
+      'Vite',
+      'LocalStorage',
+      'Responsive Web Design',
+    ],
+    liveDemoUrl: 'https://nova-e-commerce-ten.vercel.app/',
     githubUrl: 'https://github.com/bassant198',
   },
 ];
@@ -179,21 +162,21 @@ export const WHY_WORK_ITEMS: WhyWorkItem[] = [
     id: 'why-problem-solving',
     title: 'Problem Solving',
     description:
-      'Breaking down layout and UI challenges methodically to find effective and clean solutions.',
+      'Breaking down user interface requirements into logical, modular components and solving layout or logic issues effectively.',
     iconName: 'Cpu',
   },
   {
     id: 'why-continuous-learning',
     title: 'Continuous Learning',
     description:
-      'Actively practicing, exploring modern web standards, and expanding frontend skills every day.',
+      'Actively exploring modern web development practices, refining frontend skills, and keeping code standards up to date.',
     iconName: 'TrendingUp',
   },
   {
     id: 'why-user-focused',
     title: 'User-Focused Development',
     description:
-      'Creating intuitive interfaces with clear visual feedback and accessible navigation.',
+      'Prioritizing accessible navigation, readable layouts, and intuitive experiences for everyday users across all devices.',
     iconName: 'Users',
   },
 ];
